@@ -8,6 +8,9 @@ from .forms import *
 from django.http import HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+def index(request):
+    return render(request,'Authorisation/index.html')
+
 class UserFormView(View):
     form_class=UserForm
     template_name='Authorisation/registration_form.html'
