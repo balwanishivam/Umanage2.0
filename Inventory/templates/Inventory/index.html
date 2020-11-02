@@ -1,0 +1,47 @@
+{% extends 'Inventory/base.html' %}
+
+{% block content %}
+
+    <div class="buttion_place">
+        <a href="{% url 'Inventory:addnew' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"> + Add Product</a>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th> ID</th>
+            <th> Name</th>
+            <th>Produvt Type</th>
+            <th>Supplier ID</th>
+            <th>Supplier</th>
+            <th>Quantity </th>
+            <th>Cost Price </th>
+            <th>Selling Price </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+
+            <tr>
+                <th>
+                    <a href="{% url 'Inventory:details' product.pk %}">
+                        {{ product.pk }}
+                    </a>
+                </th>
+                
+                <td>{{ product.name }}</td>
+                <td>{{ product.ptype }}</td>
+                <td>{{ product.dealer_id }}</td>
+                <td>{{ product.dealer_name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.cost_price }}</td>
+                <td>{{ product.selling_price }}</td>
+                
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
