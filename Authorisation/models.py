@@ -34,7 +34,7 @@ class Myusermanager(BaseUserManager):
 class Myuser(AbstractBaseUser):
     email=models.EmailField(max_length=256,verbose_name="email",unique=True)
     username=models.CharField(max_length=100,null=True)
-    user_type=models.CharField(max_length=3,choices=USER_CHOICE)
+    user_type=models.CharField(max_length=3,choices=USER_CHOICE,blank=True)
     organisation_name=models.CharField(max_length=200)
     date_joined=models.DateTimeField(verbose_name='date-joined',auto_now_add=True)
     last_login=models.DateTimeField(verbose_name='last-login',auto_now=True)
